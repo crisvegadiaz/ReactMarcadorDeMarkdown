@@ -22,9 +22,8 @@
   background-color: whitesmoke;
   border: black 2px solid;
   border-radius: 0.5rem;
-  color: whitesmoke;
   font-family: Arial, Helvetica, sans-serif;
-  height: 30vh;
+  height: 40%;
   padding: 1rem;
   width: 60vh;
 }
@@ -39,4 +38,5 @@
   color: whitesmoke;
   font-family: 'Nunito', sans-serif;
   font-size: 2rem;
+  text-align: left;
 }

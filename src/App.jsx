@@ -1,6 +1,7 @@
 import "./App.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-//import marked from "marked";
+import { useState, useEffect } from "react";
+import { marked } from "marked";
 
 const defaultMarkdown = `
 # Encabezado 1
@@ -18,6 +19,18 @@ Bloque de código
 `;
 
 function App() {
+  const [markdown, setMarkdown] = useState(defaultMarkdown);
+
+  useEffect(() => {
+    document.getElementById("preview").innerHTML = marked(markdown, {
+      breaks: true,
+    });
+  }, [markdown]);
+
+  const handleChange = (e) => {
+    setMarkdown(e.target.value);
+  };
+
   return (
     <>
       <main className="app">
@@ -26,7 +39,7 @@ function App() {
           <h3 className="titilo-subtitulo">
             <i className="bi bi-markdown-fill"> Markdown</i>
           </h3>
-          <textarea id="editor" value={defaultMarkdown} />
+          <textarea id="editor" onChange={handleChange} value={markdown} />
         </section>
         <section className="preview-container">
           <h3 className="titilo-subtitulo">
