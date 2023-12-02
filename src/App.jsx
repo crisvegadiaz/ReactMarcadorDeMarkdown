@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+//import marked from "marked";
+
+const defaultMarkdown = `
+# Encabezado 1
+## Encabezado 2
+[Enlace a Google](https://www.google.com/)
+\`Código en línea\`
+\`\`\`
+Bloque de código
+\`\`\`
+- Elemento de lista 1
+- Elemento de lista 2
+> Cuota de bloque
+![Texto alternativo](https://via.placeholder.com/150)
+**Texto en negrita**
+`;
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main className="app">
+        <h2 className="titilo">Marcador De Markdown</h2>
+        <section className="editor-container">
+          <h3 className="titilo-subtitulo">
+            <i className="bi bi-markdown-fill"> Markdown</i>
+          </h3>
+          <textarea id="editor" value={defaultMarkdown} />
+        </section>
+        <section className="preview-container">
+          <h3 className="titilo-subtitulo">
+            <i className="bi bi-journal-richtext">Ver Resultado</i>
+          </h3>
+          <div id="preview" />
+        </section>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
